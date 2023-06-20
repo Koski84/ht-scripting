@@ -1,6 +1,5 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const fs = require("fs");
 const { setTimeout } = require("timers/promises");
 
 const htUrl = "https://www.hattrick.org/es/World/Series/?LeagueLevelUnitID=";
@@ -24,7 +23,6 @@ async function main(){
 }
 
 function printBots(html) {
-    // fs.writeFileSync("test.html", html);
     const $ = cheerio.load(html);
     const leagueName = $(leagueNameSelector).text().trim().replace('\n', '');
     const bots = $(botSelector).length;
